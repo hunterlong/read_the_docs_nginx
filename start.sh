@@ -26,13 +26,13 @@ if [ ! -d "/root/docs_source/.git" ]; then
       if [ -z "$GIT_USERNAME" ] && [ -z "$GIT_PERSONAL_TOKEN" ]; then
         git clone -b $GIT_BRANCH https://github.com/$GIT_REPO /root/docs_source/ || exit 1
       else
-        git clone -b ${GIT_BRANCH} https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /root/docs_source || exit 1
+        git clone -b ${GIT_BRANCH} https://${GIT_PERSONAL_TOKEN}@github.com/${GIT_REPO}.git /root/docs_source || exit 1
       fi
     else
       if [ -z "$GIT_USERNAME" ] && [ -z "$GIT_PERSONAL_TOKEN" ]; then
         git clone https://github.com/$GIT_REPO /root/docs_source/  || exit 1
       else
-        git clone https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /root/docs_source || exit 1
+        git clone https://${GIT_PERSONAL_TOKEN}@github.com/${GIT_REPO}.git /root/docs_source || exit 1
       fi
     fi
   fi
@@ -47,6 +47,8 @@ if [ -f /root/docs_source/config/rails_env.conf ]; then
 fi
 
 cd /root/docs_source
+
+sphinx-build -b html /root/docs_source/${DOCS_FOLDER} /var/www/html/
 
 service nginx restart
 
