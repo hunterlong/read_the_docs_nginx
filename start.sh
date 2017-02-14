@@ -50,14 +50,6 @@ chown -Rf app:app /var/www/html
 
 cd /var/www/html
 
-bundle config --global path "$GEM_HOME"
-bundle config --global bin "$GEM_HOME/bin"
-bundle install --path "$GEM_HOME"
-
-rake db:migrate RAILS_ENV=$RAILS_ENV
-
 chown -Rf app:app /var/www/html
-
-/sbin/my_init
 
 tail -f /var/log/nginx/access.log
