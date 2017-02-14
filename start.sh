@@ -17,39 +17,37 @@ if [ ! -z "$GIT_NAME" ]; then
 fi
 
 # Dont pull code down if the .git folder exists
-if [ ! -d "/var/www/html/.git" ]; then
+if [ ! -d "/root/docs_source/.git" ]; then
   # Pull down code from git for our site!
   if [ ! -z "$GIT_REPO" ]; then
     # Remove the test index file
-    rm -Rf /var/www/html/*
+    rm -Rf /root/docs_source/*
     if [ ! -z "$GIT_BRANCH" ]; then
       if [ -z "$GIT_USERNAME" ] && [ -z "$GIT_PERSONAL_TOKEN" ]; then
-        git clone -b $GIT_BRANCH https://github.com/$GIT_REPO /var/www/html/ || exit 1
+        git clone -b $GIT_BRANCH https://github.com/$GIT_REPO /root/docs_source/ || exit 1
       else
-        git clone -b ${GIT_BRANCH} https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /var/www/html || exit 1
+        git clone -b ${GIT_BRANCH} https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /root/docs_source || exit 1
       fi
     else
       if [ -z "$GIT_USERNAME" ] && [ -z "$GIT_PERSONAL_TOKEN" ]; then
-        git clone https://github.com/$GIT_REPO /var/www/html/  || exit 1
+        git clone https://github.com/$GIT_REPO /root/docs_source/  || exit 1
       else
-        git clone https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /var/www/html || exit 1
+        git clone https://github.com/${GIT_USERNAME}:${GIT_PERSONAL_TOKEN}@${GIT_REPO} /root/docs_source || exit 1
       fi
     fi
   fi
 fi
 
-if [ -f /var/www/html/config/nginx.conf ]; then
-  cp -f /var/www/html/config/nginx.conf /etc/nginx/sites-enabled/webapp.conf
+if [ -f /root/docs_source/config/nginx.conf ]; then
+  cp -f /root/docs_source/config/nginx.conf /etc/nginx/sites-enabled/webapp.conf
 fi
 
-if [ -f /var/www/html/config/rails_env.conf ]; then
-  cp -f /var/www/html/config/rails_env.conf /etc/nginx/main.d/rails_env.conf
+if [ -f /root/docs_source/config/rails_env.conf ]; then
+  cp -f /root/docs_source/config/rails_env.conf /etc/nginx/main.d/rails_env.conf
 fi
 
-chown -Rf app:app /var/www/html
+cd /root/docs_source
 
-cd /var/www/html
-
-chown -Rf app:app /var/www/html
+service nginx restart
 
 tail -f /var/log/nginx/access.log
