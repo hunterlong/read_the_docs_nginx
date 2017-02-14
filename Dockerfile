@@ -6,3 +6,5 @@ RUN apt-get update
 RUN apt-get install -y python nginx
 
 RUN pip install sphinx
+
+WORKDIR /root
