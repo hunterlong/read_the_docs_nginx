@@ -12,7 +12,8 @@ ENV GIT_PERSONAL_TOKEN $GIT_PERSONAL_TOKEN
 ENV DOCS_FOLDER $DOCS_FOLDER
 
 RUN apt-get update
-RUN apt-get install -y nginx
+RUN apt-get install -y nginx python git python-setuptools
+RUN easy_install pip
 
 RUN pip install sphinx
 
