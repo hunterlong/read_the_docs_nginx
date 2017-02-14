@@ -16,10 +16,13 @@ RUN apt-get install -y nginx python git python-setuptools
 RUN easy_install pip
 
 RUN pip install sphinx
+RUN pip install sphinx_rtd_theme
+
+RUN rm /etc/nginx/sites-enabled/default
+ADD conf/nginx/app.conf /etc/nginx/sites-enabled/webapp.conf
 
 RUN mkdir /root/docs_source
-RUN mkdir /root/sphinx_rtd_theme
-WORKDIR /root/sphinx_rtd_theme
+WORKDIR /root
 RUN git clone https://github.com/snide/sphinx_rtd_theme
 
 ADD start.sh /root/start.sh
