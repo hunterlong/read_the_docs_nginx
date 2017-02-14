@@ -30,4 +30,4 @@ WORKDIR /root
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/root/start.sh"]
