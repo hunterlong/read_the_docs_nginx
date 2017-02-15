@@ -1,6 +1,6 @@
 # Read The Docs Nginx Docker
 
-This Docker image will create simple Documentation base on [Sphinx Read The Docs Theme](https://github.com/snide/sphinx_rtd_theme) as you've seen from [ReadTheDocs.org](https://readthedocs.org). You can mount your docs source to this image, or you can pull from your public and/or private github. 
+This Docker image will create simple Documentation based on [Sphinx Read The Docs Theme](https://github.com/snide/sphinx_rtd_theme) as you've seen from [ReadTheDocs.org](https://readthedocs.org). You can mount your docs source to this image, or you can pull from your public and/or private github. You can even put custom configs for Nginx.
 
 ![readthedocs.org docker](https://raw.githubusercontent.com/hunterlong/read_the_docs_nginx/master/docs/screenshot.png)
 
