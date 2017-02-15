@@ -50,8 +50,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Atlys Channel Platform'
-copyright = u'2017, Atlys Inc'
+project = u'Read The Docs'
+copyright = u'2017, Read The Docs'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -163,10 +163,10 @@ html_theme_path = ["../.."]
 html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-html_show_sphinx = False
+#html_show_sphinx = True
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-html_show_copyright = False
+#html_show_copyright = True
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
