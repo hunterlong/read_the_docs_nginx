@@ -42,10 +42,6 @@ if [ -f /root/docs_source/config/nginx.conf ]; then
   cp -f /root/docs_source/config/nginx.conf /etc/nginx/sites-enabled/webapp.conf
 fi
 
-if [ -f /root/docs_source/config/rails_env.conf ]; then
-  cp -f /root/docs_source/config/rails_env.conf /etc/nginx/main.d/rails_env.conf
-fi
-
 cd /root/docs_source
 
 sphinx-build -b html /root/docs_source/${DOCS_FOLDER} /var/www/html/

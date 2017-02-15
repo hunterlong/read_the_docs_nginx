@@ -25,6 +25,8 @@ RUN mkdir /root/docs_source
 WORKDIR /root
 RUN git clone https://github.com/snide/sphinx_rtd_theme
 
+ADD docs/* /root/docs_source/
+
 ADD start.sh /root/start.sh
 RUN chmod 777 /root/start.sh
 
