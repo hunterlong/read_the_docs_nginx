@@ -2,7 +2,7 @@
 
 This Docker image will create simple Documentation base on [Sphinx Read The Docs Theme](https://github.com/snide/sphinx_rtd_theme) as you've seen from [ReadTheDocs.org](https://readthedocs.org). You can mount your docs source to this image, or you can pull from your public and/or private github. 
 
-.. image:: docs/screenshot.png
+![readthedocs.org docker](https://raw.githubusercontent.com/hunterlong/read_the_docs_nginx/master/docs/screenshot.png)
 
 ## Mounting Docs
 Mount your volume to '/root/docs_source' and it will automatically be generated on startup.
