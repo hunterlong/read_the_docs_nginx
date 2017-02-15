@@ -10,7 +10,7 @@ docker run -it -v /var/mydocs:/root/docs_source -p 80:80 hunterlong/read_the_doc
 ```
 
 ## Docs From Public Github Repo
-'DOCS_FOLDER' should equal the folder inside the repo that holds the documentation (*.rst). You can remove this if the repo is just the documentation. 
+'DOCS_FOLDER' should equal the folder inside the repo that holds the documentation (*.rst). You can remove this if the repo is just the documentation. Notice how this repo, the .rst files are inside the 'docs' folder.
 ```bash
 docker run -it -p 80:80 \
   -e "GITHUB_REPO=hunterlong/read_the_docs_nginx" \
