@@ -31,3 +31,16 @@ docker run -it -p 80:80 \
   -e "DOCS_FOLDER=docs" \ 
   hunterlong/read_the_docs_nginx
 ```
+
+## Custom Spinx Build Config
+Inside the directory of the docs, you should have a file [conf.py](https://github.com/hunterlong/read_the_docs_nginx/blob/master/docs/conf.py). You must include the file included or change file to your own. In this config file, you change docs Name, Version, and more settings.
+
+## Custom Nginx Config
+If you'd like to edit the Nginx Config file for hosting the docs, checkout [conf/nginx/webapp.conf](https://github.com/hunterlong/read_the_docs_nginx/blob/master/conf/nginx/app.conf). If your github repo has folder 'conf/nginx' it will look for app.conf. It will be automatically copied from the github repo into Nginx. 
+
+You can also mount your config like so:
+```bash
+docker run -it -v /var/mydocs:/root/docs_source \
+  -v /etc/mynginx/vhost.conf:/etc/nginx/sites-enabled/webapp.conf \
+  -p 80:80 hunterlong/read_the_docs_nginx
+```
